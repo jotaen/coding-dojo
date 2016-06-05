@@ -4,89 +4,25 @@ const assert = require('assert')
 const lib = require('../src/lib.js')
 
 describe('#lib', () => {
-  describe('#isInEducation', () => {
-    it('should return true for a "student"', () => {
-      const customer = {job: 'student'}
-      const result = lib.isInEducation(customer)
+  describe('#isOneOf', () => {
+    it('should return true if a value is contained in the array', () => {
+      const array = ['foo', 'bar', 'baz']
+      const result = lib.isOneOf('value', array)({value: 'bar'})
       assert(result === true)
     })
-    it('should return true for a "pupil"', () => {
-      const customer = {job: 'pupil'}
-      const result = lib.isInEducation(customer)
+    it('should return true if a value is contained in the array (at beginning)', () => {
+      const array = ['foo', 'bar', 'baz']
+      const result = lib.isOneOf('value', array)({value: 'foo'})
       assert(result === true)
     })
-    it('should return true for a "apprentice"', () => {
-      const customer = {job: 'apprentice'}
-      const result = lib.isInEducation(customer)
+    it('should return true if a value is contained in the array (at end)', () => {
+      const array = ['foo', 'bar', 'baz']
+      const result = lib.isOneOf('value', array)({value: 'baz'})
       assert(result === true)
     })
-    it('should return false for a "employee"', () => {
-      const customer = {job: 'employee'}
-      const result = lib.isInEducation(customer)
-      assert(result === false)
-    })
-    it('should return false for a "pupils"', () => {
-      const customer = {job: 'pupils'}
-      const result = lib.isInEducation(customer)
-      assert(result === false)
-    })
-    it('should return false for a anything else', () => {
-      const customer = {job: 'qwerty'}
-      const result = lib.isInEducation(customer)
-      assert(result === false)
-    })
-  })
-
-  describe('#isYoungerThan', () => {
-    it('should return true for people who are younger than specified', () => {
-      const customer = {age: 17}
-      const result = lib.isYoungerThan(20)(customer)
-      assert(result === true)
-    })
-    it('should return true for people who are of the same age as specified', () => {
-      const customer = {age: 40}
-      const result = lib.isYoungerThan(40)(customer)
-      assert(result === false)
-    })
-    it('should return false for people who are older than specified', () => {
-      const customer = {age: 48}
-      const result = lib.isYoungerThan(30)(customer)
-      assert(result === false)
-    })
-  })
-
-  describe('#isFromYear', () => {
-    it('should return true for dates that are of the same year as specified', () => {
-      const order = {year: 2001}
-      const result = lib.isFromYear(2001)(order)
-      assert(result === true)
-    })
-    it('should return false for dates that are of an earlier year as specified', () => {
-      const order = {year: 1946}
-      const result = lib.isFromYear(2001)(order)
-      assert(result === false)
-    })
-    it('should return false for dates that are of a later year as specified', () => {
-      const order = {year: 2571}
-      const result = lib.isFromYear(2001)(order)
-      assert(result === false)
-    })
-  })
-
-  describe('#isFromMonth', () => {
-    it('should return true for dates that are of the same month as specified', () => {
-      const order = {month: 4}
-      const result = lib.isFromMonth(4)(order)
-      assert(result === true)
-    })
-    it('should return false for dates that are of an earlier month as specified', () => {
-      const order = {month: 2}
-      const result = lib.isFromMonth(6)(order)
-      assert(result === false)
-    })
-    it('should return false for dates that are of a later month as specified', () => {
-      const order = {month: 11}
-      const result = lib.isFromMonth(3)(order)
+    it('should return false if a value is not contained in the array', () => {
+      const array = ['foo', 'bar', 'baz']
+      const result = lib.isOneOf('value', array)({value: 'asdfasdf'})
       assert(result === false)
     })
   })

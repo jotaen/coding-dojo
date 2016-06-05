@@ -1,12 +1,6 @@
 'use strict'
 
-exports.isInEducation = (customer) => customer.job === 'student' || customer.job === 'apprentice' || customer.job === 'pupil'
-
-exports.isYoungerThan = (age) => (customer) => customer.age < age
-
-exports.isFromYear = (year) => (order) => order.year === year
-
-exports.isFromMonth = (month) => (order) => order.month === month
+exports.isOneOf = (propertyName, allowedValues) => (obj) => allowedValues.indexOf(obj[propertyName]) >= 0
 
 exports.arrayFlatten = (a, b) => a.concat(b)
 
