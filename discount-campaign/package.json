@@ -1,8 +1,8 @@
 {
-  "name": "js-katas",
+  "name": "discount-campaign",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "directories": {
     "test": "test"
   },
