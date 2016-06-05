@@ -14,6 +14,8 @@ exports.extractProperty = (propertyName) => (obj) => obj[propertyName]
 
 exports.sum = (a, b) => a + b
 
+exports.range = (size) => Array.apply(null, Array(size)).map((_, i) => i)
+
 exports.rightAlign = (string, length) => (' '.repeat(length) + string).substr(-length, length)
 
 exports.transformDate = (order) => {

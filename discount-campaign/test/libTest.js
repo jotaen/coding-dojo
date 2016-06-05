@@ -130,6 +130,18 @@ describe('#lib', () => {
     })
   })
 
+  describe('#range', () => {
+    it('should create an array of the specified size with index as values', () => {
+      const result = lib.range(6)
+      assert(result.length === 6)
+      let index = 0
+      result.forEach((value) => {
+        assert(value === index)
+        index++
+      })
+    })
+  })
+
   describe('#rightAlign', () => {
     it('should fill up a string with spaces on the left side', () => {
       const result = lib.rightAlign('test', 10)
