@@ -12,7 +12,7 @@ const relevantOrders = customerData
   .filter(lib.isFromYear(2015))
 
 const revenuesByMonths = Array(9).fill().map((_, i) => relevantOrders
-  .filter(lib.isFromMonth(i+1))
+  .filter(lib.isFromMonth(i + 1))
   .map(lib.extractProperty('total'))
   .reduce(lib.sum, 0)
   .toFixed(2)
@@ -35,6 +35,6 @@ revenuesByMonths.forEach((revenue, i) => {
 
 ;(() => {
   const indented = lib.rightAlign(revenueTotal, indent)
-  console.log('='.repeat(indent+7))
+  console.log('='.repeat(indent + 7))
   console.log(`∑    ${indented} €`)
 })()
