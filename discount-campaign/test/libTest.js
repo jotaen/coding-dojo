@@ -41,15 +41,15 @@ describe('#lib', () => {
     })
   })
 
-  describe('#extractProperty', () => {
+  describe('#cutDownTo', () => {
     it('should extract a property from an object', () => {
       const obj = {foo: 'a', bar: 'b', baz: 'c'}
-      const result = lib.extractProperty('foo')(obj)
+      const result = lib.cutDownTo('foo')(obj)
       assert(result === 'a')
     })
     it('should return undefined, if the property does not exist', () => {
       const obj = {foo: 'a', bar: 'b', baz: 'c'}
-      const result = lib.extractProperty('asdfasdf')(obj)
+      const result = lib.cutDownTo('asdfasdf')(obj)
       assert(result === undefined)
     })
   })

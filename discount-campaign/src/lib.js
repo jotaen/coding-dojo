@@ -4,7 +4,7 @@ exports.isOneOf = (propertyName, allowedValues) => (obj) => allowedValues.indexO
 
 exports.arrayFlatten = (a, b) => a.concat(b)
 
-exports.extractProperty = (propertyName) => (obj) => obj[propertyName]
+exports.cutDownTo = (propertyName) => (obj) => obj[propertyName]
 
 exports.sum = (a, b) => a + b
 
