@@ -19,8 +19,5 @@ revenuesByMonths.forEach((revenue, i) => {
   console.log(`${monthNames[i]}: ${valueRightAligned} €`)
 })
 
-;(() => {
-  const valueRightAligned = lib.leftPad(revenueTotal, lineLength)
-  console.log('='.repeat(lineLength + 7))
-  console.log(`∑    ${valueRightAligned} €`)
-})()
+console.log('='.repeat(lineLength + 7))
+console.log(`∑    ${revenueTotal} €`)
