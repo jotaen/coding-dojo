@@ -14,9 +14,11 @@ exports.leftPad = (string, length) => (' '.repeat(length) + string).substr(-leng
 
 exports.splitDate = (obj) => {
   const date = obj.date.split('-')
-  return Object.assign({
-    year: parseInt(date[0]),
-    month: parseInt(date[1]),
-    day: parseInt(date[2])
-  }, obj)
+  return Object.assign({}, obj, {
+    date: {
+      year: parseInt(date[0]),
+      month: parseInt(date[1]),
+      day: parseInt(date[2])
+    }
+  })
 }

@@ -91,14 +91,9 @@ describe('#lib', () => {
     it('should split a date string into separate properties', () => {
       const date = {date: '2001-04-18'}
       const result = lib.splitDate(date)
-      assert(result.day === 18)
-      assert(result.month === 4)
-      assert(result.year === 2001)
-    })
-    it('should keep the original date property', () => {
-      const date = {date: '2001-04-18'}
-      const result = lib.splitDate(date)
-      assert(result.date === '2001-04-18')
+      assert(result.date.day === 18)
+      assert(result.date.month === 4)
+      assert(result.date.year === 2001)
     })
     it('should return a fresh object and not modify the original one', () => {
       const original = {date: '2001-04-18'}

@@ -8,10 +8,10 @@ exports.relevantOrders = (customerData) => customerData
   .map(lib.extractProperty('orders'))
   .reduce(lib.arrayFlatten, [])
   .map(lib.splitDate)
-  .filter((order) => order.year === 2015)
+  .filter((order) => order.date.year === 2015)
 
 exports.revenuesByMonths = (orders) => lib.range(12).map((i) => orders
-  .filter((order) => order.month === i + 1)
+  .filter((order) => order.date.month === i + 1)
   .map(lib.extractProperty('total'))
   .reduce(lib.sum, 0)
   .toFixed(2)
