@@ -39,7 +39,7 @@ For the data analysis, all purchases of the calendar year (in this case: 2015) w
 
 ## Technical constraints
 
-It is not allowed to use **control flow statements** to solve this kata: Do not use `if`, `while`, `for`, `do`, `switch`. (Sidenote: `Array.prototype.forEach()` is okay, though.)
+It is **not allowed to use control flow statements** to solve this kata: Do not use `if`, `while`, `for`, `do`, `switch`. (Sidenote: `Array.prototype.forEach()` is okay, though.)
 
 ## Solution
 

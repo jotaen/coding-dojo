@@ -4,7 +4,7 @@
 
 ##### [The discount campaign](discount-campaign)
 
-A skateboard shop owner does his math before launching a discount campaign for students. Can you help him without using a single control statement?
+A skateboard shop owner does her math before launching a discount campaign for students. Can you help her without using a single control flow statement?
 
 - **Subject:** Data analysis
 - **Issue:** Functional programming
