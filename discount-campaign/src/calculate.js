@@ -7,7 +7,7 @@ exports.relevantOrders = (customerData) => customerData
   .filter((customer) => customer.age <= 25)
   .map(lib.extractProperty('orders'))
   .reduce(lib.arrayFlatten, [])
-  .map(lib.transformDate)
+  .map(lib.splitDate)
   .filter((order) => order.year === 2015)
 
 exports.revenuesByMonths = (orders) => lib.range(12).map((i) => orders

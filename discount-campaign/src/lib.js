@@ -12,15 +12,11 @@ exports.range = (size) => Array.apply(null, Array(size)).map((_, i) => i)
 
 exports.leftPad = (string, length) => (' '.repeat(length) + string).substr(-length, length)
 
-exports.transformDate = (order) => {
-  const date = order.date.split('-')
-  const day = parseInt(date[2])
-  const month = parseInt(date[1])
-  const year = parseInt(date[0])
-  return {
-    year: year,
-    month: month,
-    day: day,
-    total: order.total
-  }
+exports.splitDate = (obj) => {
+  const date = obj.date.split('-')
+  return Object.assign({
+    year: parseInt(date[0]),
+    month: parseInt(date[1]),
+    day: parseInt(date[2])
+  }, obj)
 }
