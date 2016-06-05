@@ -7,10 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "mocha",
+    "fakedata": "node data/generator.js > data/customer.json"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jan Heuermann",
+  "license": "MIT",
   "dependencies": {
     "mocha": "^2.5.3"
   }
