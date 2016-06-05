@@ -11,16 +11,16 @@ const revenueTotal = calculate.revenueTotal(relevantOrders)
 console.log('Revenue for students in 2015')
 console.log('-'.repeat(28))
 
-const indent = revenueTotal.toString().length
+const lineLength = revenueTotal.toString().length
 
 revenuesByMonths.forEach((revenue, i) => {
-  const indented = lib.rightAlign(revenue, indent)
+  const valueRightAligned = lib.leftPad(revenue, lineLength)
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  console.log(`${monthNames[i]}: ${indented} €`)
+  console.log(`${monthNames[i]}: ${valueRightAligned} €`)
 })
 
 ;(() => {
-  const indented = lib.rightAlign(revenueTotal, indent)
-  console.log('='.repeat(indent + 7))
-  console.log(`∑    ${indented} €`)
+  const valueRightAligned = lib.leftPad(revenueTotal, lineLength)
+  console.log('='.repeat(lineLength + 7))
+  console.log(`∑    ${valueRightAligned} €`)
 })()

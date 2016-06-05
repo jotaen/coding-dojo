@@ -142,9 +142,9 @@ describe('#lib', () => {
     })
   })
 
-  describe('#rightAlign', () => {
+  describe('#leftPad', () => {
     it('should fill up a string with spaces on the left side', () => {
-      const result = lib.rightAlign('test', 10)
+      const result = lib.leftPad('test', 10)
       assert(result.length === 10)
       assert(result.substr(0, 6) === '      ')
       assert(result.substr(6, 10) === 'test')

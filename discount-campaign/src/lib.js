@@ -16,7 +16,7 @@ exports.sum = (a, b) => a + b
 
 exports.range = (size) => Array.apply(null, Array(size)).map((_, i) => i)
 
-exports.rightAlign = (string, length) => (' '.repeat(length) + string).substr(-length, length)
+exports.leftPad = (string, length) => (' '.repeat(length) + string).substr(-length, length)
 
 exports.transformDate = (order) => {
   const date = order.date.split('-')
@@ -24,9 +24,9 @@ exports.transformDate = (order) => {
   const month = parseInt(date[1])
   const year = parseInt(date[0])
   return {
-    day: day,
     year: year,
     month: month,
+    day: day,
     total: order.total
   }
 }
