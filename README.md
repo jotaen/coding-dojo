@@ -4,7 +4,7 @@
 
 ##### [The discount campaign](discount-campaign)
 
-A skateboard shop owner does his math before launching a discount campaign for students. Can you help him without using a single block statement?
+A skateboard shop owner does his math before launching a discount campaign for students. Can you help him without using a single control statement?
 
 - **Subject:** Data analysis
 - **Issue:** Functional programming
