@@ -1,34 +1,17 @@
 'use strict'
 
 const lib = require('./lib')
+const calculate = require('./calculate')
 const customerData = require('../data/customer.json')
 
-const relevantOrders = customerData
-  .filter(lib.isInEducation)
-  .filter(lib.isYoungerThan(26))
-  .map(lib.extractProperty('orders'))
-  .reduce(lib.arrayFlatten, [])
-  .map(lib.transformDate)
-  .filter(lib.isFromYear(2015))
-
-const revenuesByMonths = Array(12).fill().map((_, i) => relevantOrders
-  .filter(lib.isFromMonth(i + 1))
-  .map(lib.extractProperty('total'))
-  .reduce(lib.sum, 0)
-  .toFixed(2)
-)
-
-const revenueTotal = relevantOrders
-  .map(lib.extractProperty('total'))
-  .reduce(lib.sum, 0)
-  .toFixed(2)
-
-const indent = revenueTotal
-  .toString()
-  .length
+const relevantOrders = calculate.relevantOrders(customerData)
+const revenuesByMonths = calculate.revenuesByMonths(relevantOrders)
+const revenueTotal = calculate.revenueTotal(relevantOrders)
 
 console.log('Revenue for students in 2015')
 console.log('-'.repeat(28))
+
+const indent = revenueTotal.toString().length
 
 revenuesByMonths.forEach((revenue, i) => {
   const indented = lib.rightAlign(revenue, indent)
