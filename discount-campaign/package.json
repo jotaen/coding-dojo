@@ -12,7 +12,7 @@
     "fakedata": "node data/generator.js > data/customer.json"
   },
   "author": "Jan Heuermann",
-  "license": "MIT",
+  "license": "Unlicense",
   "dependencies": {
     "mocha": "^2.5.3"
   }
