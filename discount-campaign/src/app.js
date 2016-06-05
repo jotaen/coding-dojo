@@ -11,7 +11,7 @@ const relevantOrders = customerData
   .map(lib.transformDate)
   .filter(lib.isFromYear(2015))
 
-const revenuesByMonths = Array(9).fill().map((_, i) => relevantOrders
+const revenuesByMonths = Array(12).fill().map((_, i) => relevantOrders
   .filter(lib.isFromMonth(i + 1))
   .map(lib.extractProperty('total'))
   .reduce(lib.sum, 0)
@@ -27,9 +27,12 @@ const indent = revenueTotal
   .toString()
   .length
 
+console.log('Revenue for students in 2015')
+console.log('-'.repeat(28))
+
 revenuesByMonths.forEach((revenue, i) => {
   const indented = lib.rightAlign(revenue, indent)
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   console.log(`${monthNames[i]}: ${indented} €`)
 })
 
