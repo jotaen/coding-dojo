@@ -1,0 +1,13 @@
+{
+  "name": "discount-campaign",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha",
+    "fakedata": "node data/generator.js > data/customer.json"
+  },
+  "dependencies": {
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.3"
+  }
+}

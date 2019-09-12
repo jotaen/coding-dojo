@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('assert')
-const lib = require('../src/lib.js')
+const lib = require('./lib.js')
 
 describe('#lib', () => {
   describe('#isOneOf', () => {

@@ -1,15 +1,12 @@
 # The discount campaign
 
-*(From the [code-kata.js](https://github.com/jotaen/code-katas.js) repository)*
-
-
 ## Problem
 
-The owner of a skateboard shop asks you for help: In order to attract more students and pupils to come to her store, she is about to launch a discount campaign. The idea is to offer a rebate for the period of one month. Since she has a pretty much complete set of customer data, she wants to get an overview over the average revenue within the target group, so that she can calculate a proper discount.
+The owner of a skateboard shop asks you for help: In order to attract more students and pupils to come to her store, she is about to launch a discount campaign. The idea is to offer a rebate for the period of one month. Since she has a pretty much complete set of customer data, she wants to get an overview over the average revenue within the target group. That way she hopes to figure out what a reasonable discount might look like based on actual numbers.
 
 ## Task
 
-The customer data can be found in the [`data/customer.json`](data/customer.json) file. This is what the data structure looks like:
+The customer data can be found in the [`customer.json`](customer.json) file. This is how the data structure looks:
 
 ```
 [
@@ -37,10 +34,6 @@ For the data analysis, all purchases of the calendar year (in this case: 2015) w
 - the revenue aggregated by months (from January 2015 until December 2015)
 - the total revenue throughout the entire year 2015
 
-## Technical constraints
+## Constraints
 
-It is **not allowed to use control flow statements** to solve this kata: Do not use `if`, `while`, `for`, `do`, `switch`. (Sidenote: `Array.prototype.forEach()` is okay, though.)
-
-## Solution
-
-My own solution (which is just one possibility to solve this problem) can be found in the [`src/`](src/) folder. Run `npm start` to see the output.
+It is **not allowed to use control flow statements** to solve this kata: Do not use `if`, `while`, `for`, `do`, `switch`. (Sidenote: `Array.prototype.forEach()` or `Array.prototype.map()` is okay, though.)

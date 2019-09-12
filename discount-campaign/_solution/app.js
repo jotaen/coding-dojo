@@ -2,7 +2,7 @@
 
 const lib = require('./lib')
 const calculate = require('./calculate')
-const customerData = require('../data/customer.json')
+const customerData = require('../customer.json')
 
 const relevantOrders = calculate.relevantOrders(customerData)
 const revenuesByMonths = calculate.revenuesByMonths(relevantOrders)
