@@ -24,14 +24,14 @@ const { exec } = require('child_process');
   [["-hex", "0b1001"], 0, "0x9"],
 
   // Reject invalid input
-  [["-hex", "23z7"], 1, "Error: Input arguments invalid"],
-  [["-bin", "0xyvag"], 1, "Error: Input arguments invalid"],
-  [["-dec", "0b03030"], 1, "Error: Input arguments invalid"],
+  [["-hex", "23z7"], 1, "Error: Input number invalid"],
+  [["-bin", "0xyvag"], 1, "Error: Input number invalid"],
+  [["-dec", "0b03030"], 1, "Error: Input number invalid"],
 
   // Reject invalid options
-  [["-π", "123"], 1, "Error: Input arguments invalid"],
-  [["-foo", "123"], 1, "Error: Input arguments invalid"],
-  [["123", "-hex"], 1, "Error: Input arguments invalid"],
+  [["-π", "123"], 1, "Error: Target option invalid"],
+  [["-foo", "123"], 1, "Error: Target option invalid"],
+  [["123", "123"], 1, "Error: Target option invalid"],
 
   // Reject wrong number of args
   [["-bin", "123", "456"], 1, "Error: Wrong number of arguments"],

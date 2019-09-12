@@ -2,18 +2,21 @@ try {
   if (process.argv.length === 4) {
     const target = process.argv[2];
     const input = process.argv[3];
-    if (["-bin", "-hex", "-dec"].includes(target) &&
-        /^(0b[01]+|0x[0-9a-fA-F]+|[^0]\d*)$/.test(input)) {
-      let decimal;
-      const prefix = input.substr(0, 2);
-      if (prefix === "0b") decimal = parseInt(input.substr(2), 2);
-      else if (prefix === "0x") decimal = parseInt(input.substr(2), 16);
-      else decimal = parseInt(input);
-      if (target === "-bin") console.log("0b" + decimal.toString(2));
-      else if (target === "-hex") console.log("0x" + decimal.toString(16));
-      else console.log(decimal.toString());
+    if (["-bin", "-hex", "-dec"].includes(target)) {
+      if (/^(0b[01]+|0x[0-9a-fA-F]+|[^0]\d*)$/.test(input)) {
+        let decimal;
+        const prefix = input.substr(0, 2);
+        if (prefix === "0b") decimal = parseInt(input.substr(2), 2);
+        else if (prefix === "0x") decimal = parseInt(input.substr(2), 16);
+        else decimal = parseInt(input);
+        if (target === "-bin") console.log("0b" + decimal.toString(2));
+        else if (target === "-hex") console.log("0x" + decimal.toString(16));
+        else console.log(decimal.toString());
+      } else {
+        throw "Input number invalid";
+      }
     } else {
-      throw "Input arguments invalid";
+      throw "Target option invalid";
     }
   } else {
     throw "Wrong number of arguments";
