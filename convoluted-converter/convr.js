@@ -3,7 +3,7 @@ try {
     const target = process.argv[2];
     const input = process.argv[3];
     if (target === "-bin" || target === "-hex" || target === "-dec") {
-      if (/^(0b[01]+|0x[0-9a-fA-F]+|[^0]\d*)$/.test(input)) {
+      if (/^(0b[01]+|0x[0-9a-fA-F]+|0|[1-9]\d*)$/.test(input)) {
         let decimal;
         const prefix = input.substr(0, 2);
         if (prefix === "0b") decimal = parseInt(input.substr(2), 2);

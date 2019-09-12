@@ -9,21 +9,29 @@ const { exec } = require('child_process');
   //  ]
 
   // Convert to bin
+  [["-bin", "0"], 0, "0b0"],
   [["-bin", "14"], 0, "0b1110"],
   [["-bin", "0xea"], 0, "0b11101010"],
   [["-bin", "0b1001"], 0, "0b1001"],
+  [["-bin", "0x6ef819c6ed"], 0, "0b110111011111000000110011100011011101101"],
 
   // Convert to dec
+  [["-dec", "0"], 0, "0"],
   [["-dec", "14"], 0, "14"],
   [["-dec", "0xea"], 0, "234"],
   [["-dec", "0b1001"], 0, "9"],
+  [["-dec", "0b110111011111000000110011100011011101101"], 0, "476608841453"],
 
   // Convert to hex
+  [["-hex", "0"], 0, "0x0"],
   [["-hex", "14"], 0, "0xe"],
   [["-hex", "0xea"], 0, "0xea"],
   [["-hex", "0b1001"], 0, "0x9"],
+  [["-hex", "476608841453"], 0, "0x6ef819c6ed"],
 
   // Reject invalid input
+  [["-hex", "-15"], 1, "Error: Input number invalid"],
+  [["-hex", "-0xab"], 1, "Error: Input number invalid"],
   [["-hex", "23z7"], 1, "Error: Input number invalid"],
   [["-bin", "0xyvag"], 1, "Error: Input number invalid"],
   [["-dec", "0b03030"], 1, "Error: Input number invalid"],
