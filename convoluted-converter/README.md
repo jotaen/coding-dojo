@@ -1,6 +1,6 @@
 # “The convoluted converter”
 
-A refactoring code kata in JavaScript. Read my corresponding [blog post](https://www.jotaen.net/Kap8E/clean-code-refactoring-kata) for further background.
+A refactoring code kata in JavaScript. Read my corresponding [blog post](https://www.jotaen.net/0K2pE/clean-code-refactoring-kata) for further background.
 
 ## How to use it
 
