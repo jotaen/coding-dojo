@@ -1,7 +1,7 @@
 const numberSystems = [
   {name: "bin", prefix: "0b", base: 2, shape: /^0b[01]+$/},
   {name: "hex", prefix: "0x", base: 16, shape: /^0x[0-9a-fA-F]+$/},
-  {name: "dec", prefix: "", base: 10, shape: /^[^0]\d*$/},
+  {name: "dec", prefix: "", base: 10, shape: /^(0|[1-9]\d*)$/},
 ];
 
 const normalise = (ns, input) => parseInt(input.substr(ns.prefix.length), ns.base);
