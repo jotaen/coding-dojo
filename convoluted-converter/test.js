@@ -61,12 +61,17 @@ Promise.all([
       res(`\`${exp.args}\` was \`${msg}\` instead of \`${exp.out}\``);
   })});
 })).then(rs => {
-  const ok = rs.filter(r => r === null);
+  const icons = rs.map(r => r === null ? "👍" : "🚫").sort().reverse();
+  console.log("%s (%s)\n", icons.join(""), icons.length);
   const failed = rs.filter(r => r !== null);
-  console.log("👍 %s okay", ok.length);
-  console.log("💥 %s failures", failed.length || "—" );
-  if (failed.length > 0) {
-    failed.forEach(f => console.log("\n%s", f));
+  if (failed.length === 0) {
+    const c = ["❤️ ", "🌼", "🎉", "🍾", "🌈", "🍭", "🤹‍♂️", "🏆", "🥇", "🎁",
+       "🎃","🙌", "💋", "👑", "🎄", "💐", "🍒", "🍻", "🍿", "🎯", "🚀", "🏖 "]
+      .sort(() => .5 - Math.random());
+    console.log("All good! %s %s %s", c[0], c[1], c[2]);
+  } else {
+    console.log("%s failed:", failed.length);
+    failed.forEach(f => console.log("\n💥 %s", f));
   }
   console.log("");
 });
