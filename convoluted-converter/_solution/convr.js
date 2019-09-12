@@ -7,10 +7,10 @@ const numberSystems = [
 const normalise = (ns, input) => parseInt(input.substr(ns.prefix.length), ns.base);
 const translate = (ns, intermediate) => ns.prefix + intermediate.toString(ns.base);
 const convert = (targetName, input) => {
-  const targetNS = numberSystems.find(n => n.name === targetName)
-    || (() => {throw "Target option invalid"})();
   const inputNS = numberSystems.find(n => n.shape.test(input))
     || (() => {throw "Input number invalid"})();
+  const targetNS = numberSystems.find(n => n.name === targetName)
+    || (() => {throw "Target option invalid"})();
   const intermediate = normalise(inputNS, input);
   return translate(targetNS, intermediate);
 };
