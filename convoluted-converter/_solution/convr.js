@@ -15,8 +15,6 @@ const convert = (targetName, input) => {
   return translate(targetNS, intermediate);
 };
 
-const inputShape = /^(0b[01]+|0x[0-9a-fA-F]+|[^0]\d*)$/;
-
 try {
   if (process.argv.length !== 4) {
     throw "Wrong number of arguments";
