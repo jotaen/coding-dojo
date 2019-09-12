@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-##### [The convoluted converter](convoluted converter)
+##### [The convoluted converter](/convoluted-converter)
 
 A CLI tool for converting numbers (e.g. from hex to bin) desparately needs some refactoring
 
@@ -10,7 +10,7 @@ A CLI tool for converting numbers (e.g. from hex to bin) desparately needs some 
 - **Difficulty:** ✦✦✦✦✧
 
 
-##### [The discount campaign](discount-campaign)
+##### [The discount campaign](/discount-campaign)
 
 A skateboard shop owner does her math before launching a discount campaign for students. Can you help her without using a single control flow statement?
 
