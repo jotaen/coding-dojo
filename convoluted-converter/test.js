@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 
-[
+Promise.all([
   // TEST PROPERTY FORMAT:
   //  [
   //    string[]: `list of cli args to pass to convr.js`,
@@ -32,6 +32,7 @@ const { exec } = require('child_process');
   // Reject invalid input
   [["-hex", "-15"], 1, "Error: Input number invalid"],
   [["-hex", "-0xab"], 1, "Error: Input number invalid"],
+  [["-hex", "00"], 1, "Error: Input number invalid"],
   [["-hex", "23z7"], 1, "Error: Input number invalid"],
   [["-bin", "0xyvag"], 1, "Error: Input number invalid"],
   [["-dec", "0b03030"], 1, "Error: Input number invalid"],
@@ -46,19 +47,26 @@ const { exec } = require('child_process');
   [["-bin"], 1, "Error: Wrong number of arguments"],
   [[""], 1, "Error: Wrong number of arguments"],
 
-].forEach(t => {
+].map(t => {
   const exp = {
     args: t[0].join(" "),
     status: t[1],
     out: t[2]
   }
-  exec("node convr.js " + exp.args, (err, out) => {
+  return new Promise(res => {
+    exec("node convr.js " + exp.args, (err, out) => {
     const msg = out.trim();
-    if ((err && exp.status !== 0 && msg === exp.out) || (!err && msg === exp.out)) {
-      console.log("👍");
-    }
-    else {
-      console.log("💥💥💥  `%s` was `%s` instead of `%s`", exp.args, msg, exp.out);
-    }
-  })
+    return ((err && exp.status !== 0 && msg === exp.out) || (!err && msg === exp.out)) ?
+      res(null) :
+      res(`\`${exp.args}\` was \`${msg}\` instead of \`${exp.out}\``);
+  })});
+})).then(rs => {
+  const ok = rs.filter(r => r === null);
+  const failed = rs.filter(r => r !== null);
+  console.log("👍 %s okay", ok.length);
+  console.log("💥 %s failures", failed.length || "—" );
+  if (failed.length > 0) {
+    failed.forEach(f => console.log("\n%s", f));
+  }
+  console.log("");
 });
